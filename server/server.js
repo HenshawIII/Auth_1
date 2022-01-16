@@ -16,7 +16,7 @@ app.use(bP.json());
 app.use(cookieP())
 
 
-
+ 
 app.post("/api/user",(req,res)=>{
 	const user = new User({
 		email:req.body.email,

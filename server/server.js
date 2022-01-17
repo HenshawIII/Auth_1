@@ -5,7 +5,7 @@ const Mongoose = require("Mongoose");
 const cookieP = require("cookie-parser")
 
 Mongoose.Promise= global.Promise;
-const url = "mongodb://localhost:27017/auth";
+const url = (process.env.MONGODB_URI || "mongodb://localhost:27017/auth");
 
 Mongoose.connect(url);
 const app = express();

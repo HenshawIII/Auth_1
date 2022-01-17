@@ -5,9 +5,9 @@ const Mongoose = require("Mongoose");
 const cookieP = require("cookie-parser")
 
 Mongoose.Promise= global.Promise;
-const url = (process.env.MONGODB_URI || "mongodb://localhost:27017/auth");
+const url = (process.env.MONGODB_URI || "mongodb://localhost:27017/auth").then(()=>{console.log("Connected to DB successfully")}).catch((e)=>{console.log(e)});
 
-Mongoose.connect(url);
+Mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 const app = express();
 
 const {auth} = require('./middleware/auth')

@@ -1,11 +1,11 @@
 const express = require("express");
 const bP = require("body-parser");
-const Mongoose = require("Mongoose");
+const Mongoose = require("ongoose");
 // const bcrypt = require('bcrypt')
 const cookieP = require("cookie-parser")
 
 Mongoose.Promise= global.Promise;
-const url = "mongodb+srv://ifeoluwa:NDNs3hUkif@vLMw@cluster0.dhohd.mongodb.net/Auth?retryWrites=true&w=majority" || "mongodb://localhost:27017/auth";
+const url = "mongodb+srv://ifeoluwa:NDNs3hUkif@vLMw@cluster0.dhohd.mongodb.net/Auth?retryWrites=true&w=majority" ;
 
 Mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 const app = express();

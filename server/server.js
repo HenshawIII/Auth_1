@@ -5,7 +5,7 @@ const Mongoose = require("Mongoose");
 const cookieP = require("cookie-parser")
 
 Mongoose.Promise= global.Promise;
-const url = (process.env.MONGODB_URI || "mongodb://localhost:27017/auth").then(()=>{console.log("Connected to DB successfully")}).catch((e)=>{console.log(e)});
+const url = ("mongodb+srv://ifeoluwa:NDNs3hUkif@vLMw@cluster0.dhohd.mongodb.net/Auth?retryWrites=true&w=majority" || "mongodb://localhost:27017/auth").then(()=>{console.log("Connected to DB successfully")}).catch((e)=>{console.log(e)});
 
 Mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 const app = express();

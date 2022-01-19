@@ -1,13 +1,13 @@
 const express = require("express");
 const bP = require("body-parser");
-const Mongoose = require("ongoose");
+const Mongoose = require("mongoose");
 // const bcrypt = require('bcrypt')
 const cookieP = require("cookie-parser")
 
 Mongoose.Promise= global.Promise;
-const url = "mongodb+srv://ifeoluwa:NDNs3hUkif@vLMw@cluster0.dhohd.mongodb.net/Auth?retryWrites=true&w=majority" ;
+const url =  "mongodb://localhost:27017/auth";
 
-Mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+Mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true}).then(()=>console.log("data con")).catch((e)=>{console.log(e)});
 const app = express();
 
 const {auth} = require('./middleware/auth')
@@ -15,7 +15,9 @@ const {User} = require('./models/user.js')
 app.use(bP.json());
 app.use(cookieP())
 
-
+app.get("/",(req,res)=>{
+	res.send('okap')
+})
  
 app.post("/api/user",(req,res)=>{
 	const user = new User({
